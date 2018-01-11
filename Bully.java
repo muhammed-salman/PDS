@@ -2,8 +2,9 @@ import java.io.*;
 import java.util.*;
 
 class Bully{
-  static int p[]=new int[10];
   static int crash=0,processCount=10;
+  static int p[]=new int[processCount];
+
 
   int election(int i,int j){
     if(j>i && p[j]==1){
@@ -15,7 +16,7 @@ class Bully{
 
   void bully(){
     Scanner scr=new Scanner(System.in);
-    int i=0,coord=9,ch;
+    int i=0,coord=processCount-1,ch;
     while(i<processCount){
       p[i++]=1;
     }
@@ -34,7 +35,7 @@ class Bully{
           while(c<0 || c>processCount-1){
             System.out.println("Invalid Node Number");
             System.out.println("Please Re-enter the Node Number to be Crashed");
-            c=scr.nextInt();    
+            c=scr.nextInt();
           }
           p[c]=0;
           crash++;
@@ -50,11 +51,16 @@ class Bully{
             System.out.println("The Co-ordinator is Crashed!");
             System.out.println("Please Enter the Initiator Node");
             int init=scr.nextInt();
+            while(p[init]==0){
+              System.out.println("The Node You Have Entered is Already Dead!");
+              System.out.println("Please Enter Another Node");
+              init=scr.nextInt();
+            }
             int flag=0;
             while(flag==0){
               if(p[init]==1){
                 int j=init+1;
-                while(j<10){
+                while(j<processCount){
                   int msg=election(init,j);
                   if(msg==1)
                   {
