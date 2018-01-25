@@ -22,7 +22,7 @@ class Bully{
     }
 
     System.out.println("---Bully Algorithm Demonstration---");
-    System.out.println("--There are total 10 Nodes from 0 to 9--");
+    System.out.println("--There are total "+processCount+" Nodes from 0 to "+processCount-1+" --");
     System.out.println("All are alive at moment");
     do{
       System.out.println("Please Enter Your Choice");
