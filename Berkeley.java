@@ -59,7 +59,7 @@ class Berkeley{
     //Printing New Synchronized time for server and clients
 
     System.out.println("Synchronized Server Time: "+tmH+":"+tmM+":"+tmS);
-    
+
     System.out.println("New Synchronized time for clients: ");
     for(int i=0;i<n-1;i++){
       System.out.println("Client "+(i+1)+" Time: "+tsH[i]+":"+tsM[i]+":"+tsS[i]);
@@ -92,7 +92,7 @@ class Berkeley{
     for(int i=0;i<n;i++){
       tsH[i]= tmH;
       tsM[i]= random.nextInt(59);
-      tsS[i]= random.nextInt(60);
+      tsS[i]= random.nextInt(59);
     }
 
     for(int i=0;i<n;i++){
